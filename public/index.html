@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PingMe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="appName">PingMe</header>
+
+    <div id="nicknameContainer">
+        <input id="nickname" type="text" placeholder="Enter your nickname">
+        <button onclick="setNickname()">Join Chat</button>
+    </div>
+
+    <div id="chatContainer" style="display:none;">
+        <div id="nicknameDisplay" style="font-weight: bold; margin-bottom: 10px; text-align: center;">
+        </div>
+
+        <div id="sidebar">
+            <h3>Online Users</h3>
+            <div id="userList"></div>
+        </div>
+
+        <div id="mainChat">
+            <div id="chatWindow">
+                <div id="messages"></div>
+                <p id="typingIndicator"></p>
+                <div style="display: flex; align-items: center;">
+                    <input id="message" type="text" placeholder="Type a message" oninput="typing()">
+                    <button onclick="sendMessage()">Send</button>
+                    <button onclick="leaveChat()" style="margin-left: 10px; background-color: #ff4c4c;">Leave Chat</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
